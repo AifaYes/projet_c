@@ -1,0 +1,165 @@
+*{
+    font-family: sans-serif;
+}
+button, button ::after{
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+button:after {
+      content: "";
+      background-color: #ffe54c;
+      width: 100%;
+      z-index: -1;
+      position: absolute;
+      height: 100%;
+      top: 7px;
+      left: 7px;
+      transition: 0.2s;
+    }
+button:hover:after {
+    top: 0px;
+    left: 0px;
+    }
+    
+@media (min-width: 768px) {
+    button {
+        padding: 13px 50px 13px;
+    }
+}
+/* Table Styling */
+#tableauOperations {
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+    z-index: 0;
+}
+
+/* Table Styling */
+#tableauOperations {
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+    z-index: 0;
+}
+
+#tableauOperations th, 
+#tableauOperations td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: left;
+    position: relative;
+}
+
+/* Adjust column widths */
+#tableauOperations th:nth-child(1), 
+#tableauOperations td:nth-child(1) {
+    width: 10%; /* Identifiant column */
+}
+
+#tableauOperations th:nth-child(2), 
+#tableauOperations td:nth-child(2) {
+    width: 40%; /* Name column */
+}
+
+#tableauOperations thead th {
+    background-color: #ffe54c;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    transition: 0.2s;
+}
+
+#tableauOperations tbody tr:hover {
+    background-color: #ffe54c;
+    color: black;
+    transition: 0.2s;
+}
+
+#tableauOperations tbody td::before {
+    content: "";
+    background-color: #ffe54c;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    z-index: -1;
+    transition: 0.2s;
+}
+
+#tableauOperations tbody tr:hover td::before {
+    top: 0;
+    left: 0;
+}
+/* General styling for the section */
+.formulaire-operation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffe54c;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Form layout */
+.formulaire-operation form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 7px 7px 0 #ffe54c;
+    position: relative;
+    transition: 0.2s;
+}
+
+/* Labels */
+.formulaire-operation label {
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+}
+
+.formulaire-operation input {
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 5px;
+    outline: none;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
+.formulaire-operation input:focus {
+    background-color: #ffe54c;
+    color: black;
+}
+
+/* Add spacing between the two forms */
+#AjouterClient {
+    flex-grow: 1;
+}
+
+#SupprimerClient {
+    flex-grow: 0.5;
+}
+
