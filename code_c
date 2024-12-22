@@ -15,6 +15,61 @@ void displayClients(Client* head);
 Client* searchClient(Client* head, int id);
 Client* deleteClient(Client* head, int id);
 void freeList(Client* head);
+int main() {    
+    Client* head = NULL; 
+    int choice, id;
+    char name[50], destination[50];
+    float budget;
+    while (1) {
+        printf("\n--- Travel Agency Database ---\n");
+        printf("NB: Spaces are not allowed when you write your choice in any input\n");
+        printf("1. Add Client\n");
+        printf("2. Display Clients\n");
+        printf("3. Search for a Client\n");
+        printf("4. Delete a Client\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+                printf("Enter ID: ");
+                scanf("%d", &id);
+                printf("Enter Name: ");
+                scanf(" %[^\n]", name); 
+                printf("Enter Destination: ");
+                scanf(" %[^\n]", destination);
+                printf("Enter Budget: ");
+                scanf("%f", &budget);
+                head = addClient(head, id, name, destination, budget);
+                break;
+            case 2:
+                displayClients(head);
+                break;
+            case 3:
+                printf("Enter ID to search: ");
+                scanf("%d", &id);
+                Client* found = searchClient(head, id);
+                if (found) {
+                    printf("Client Found - ID: %d, Name: %s, Destination: %s, Budget: %.2f\n",
+                           found->id, found->name, found->destination, found->budget);
+                } else {
+                    printf("Client with ID %d not found.\n", id);
+                }
+                break;
+            case 4:
+                printf("Enter ID to delete: ");
+                scanf("%d", &id);
+                head = deleteClient(head, id);
+                break;
+            case 5:
+                freeList(head);
+                printf("Exiting...\n");
+                return 0;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
+}
 
 
 
