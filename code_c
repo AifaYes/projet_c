@@ -70,7 +70,74 @@ int main() {
         }
     }
 }
+Client* addClient(Client* head, int id, char* name, char* destination, float budget) { //
+    Client* newClient = (Client*)malloc(sizeof(Client));
+    newClient->id = id;
+    strcpy(newClient->name, name);
+    strcpy(newClient->destination, destination);
+    newClient->budget = budget;
+    newClient->next = head; 
+    return newClient;
+}
 
+void displayClients(Client* head) { 
+    if (!head) {
+        printf("No clients in the database.\n");
+        return;
+    }
+    printf("\n--- Client List ---\n");
+    Client* temp = head;
+    while (temp) {
+        printf("ID: %d, Name: %s, Destination: %s, Budget: %.2f\n",
+               temp->id, temp->name, temp->destination, temp->budget);
+        temp = temp->next;
+    }
+}
+
+Client* searchClient(Client* head, int id) {
+    Client* temp = head;
+    while (temp) {
+        if (temp->id == id) {
+            return temp;
+        }
+        temp = temp->next;
+    }
+    return NULL;
+}
+Client* deleteClient(Client* head, int id) { 
+    Client* temp = head;
+    Client* prev = NULL;
+
+
+    while (temp && temp->id != id) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (!temp) {
+        printf("Client with ID %d not found.\n", id);
+        return head; 
+    }
+
+    if (!prev) {
+        head = temp->next;
+    } else {
+        prev->next = temp->next;
+    }
+
+    free(temp); 
+    printf("Client with ID %d deleted.\n", id);
+    return head;
+}
+
+void freeList(Client* head) {
+    Client* temp;
+    while (head) {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+}
 
 
 
