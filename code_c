@@ -9,3 +9,15 @@ typedef struct Client {
     float budget;
     struct Client* next; 
 } Client;
+
+Client* addClient(Client* head, int id, char* name, char* destination, float budget);
+void displayClients(Client* head);
+Client* searchClient(Client* head, int id);
+Client* deleteClient(Client* head, int id);
+void freeList(Client* head);
+
+
+
+
+
+
