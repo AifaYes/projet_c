@@ -3,7 +3,7 @@
     $name= $_POST['name'];
     $Dest= $_POST['Dest'];
     $budget= $_POST['budget'];
-    $file="../C/data.txt";
+    $file="data.txt";
     $handle = fopen($file, 'w'); 
 
     if ($handle) {
