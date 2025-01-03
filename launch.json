@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "C:/Users/yessi/Desktop/Projet/build/Debug",  // Adjusted to match your directory
+      "program": "C:/Users/yessi/Desktop/Projet/build/Debug/outDebug",  // Adjusted to your compiled executable
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/MinGW/bin/gdb.exe",  // Adjust this if you have MinGW or another debugger installed
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "build", // Ensure you have a build task for compiling
+      "logging": {
+        "engineLogging": true
+      }
+    }
+  ]
+}
